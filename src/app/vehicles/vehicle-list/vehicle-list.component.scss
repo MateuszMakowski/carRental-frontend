@@ -1,0 +1,77 @@
+/* Nagłówek tabeli */
+.table-header {
+    background-color: #e0e0e0;
+    padding: 8px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Wspólny układ wiersza */
+  .row {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Styl pojedynczej "komórki" w wierszu */
+  .cell {
+    flex: 1;
+    padding: 8px;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Akcje mogą mieć trochę większą szerokość */
+  .cell-actions {
+    flex: 1.2;
+  }
+  
+  /* Zawartość rozwiniętego panelu */
+  .panel-content {
+    padding: 16px;
+    background-color: #fafafa;
+  }
+  
+  /* Styl tabeli z danymi adresowymi */
+  .address-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .address-table th,
+  .address-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  
+  table {
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+  
+  button {
+    text-transform: none;
+  }
+  
+  table.mat-elevation-z8 {
+    box-shadow: none;           
+    border: 1px solid #e0e0e0;    
+    border-radius: 8px;           
+    overflow: hidden;            
+  }
+  
+  .mat-header-cell,
+.mat-cell {
+  text-align: center;
+}
+
+/* Opcjonalnie: wyrównanie przycisków */
+button {
+  text-transform: none;
+}

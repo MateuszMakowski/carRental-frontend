@@ -1,0 +1,18 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .error-message {
+    color: #f44336;
+    margin-top: 16px;
+  }
+
+  .error-container {
+    padding: 16px;
+    color: #b71c1c;
+    margin-bottom: 16px;
+    text-align: center;
+  }

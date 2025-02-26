@@ -1,0 +1,22 @@
+<div [formGroup]="group" class="address-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Ulica</mat-label>
+    <input matInput formControlName="street" placeholder="Wprowadź ulicę" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Miasto</mat-label>
+    <input matInput formControlName="city" placeholder="Wprowadź miasto" />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Kod pocztowy</mat-label>
+    <input
+      matInput
+      formControlName="postalCode"
+      placeholder="Wprowadź kod pocztowy"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Kraj</mat-label>
+    <input matInput formControlName="country" placeholder="Wprowadź kraj" />
+  </mat-form-field>
+</div>

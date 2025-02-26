@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Adres klienta</h2>
+<mat-dialog-content>
+  <p><strong>Ulica:</strong> {{ data.street || "-" }}</p>
+  <p><strong>Miasto:</strong> {{ data.city || "-" }}</p>
+  <p><strong>Kod pocztowy:</strong> {{ data.postalCode || "-" }}</p>
+  <p><strong>Kraj:</strong> {{ data.country || "-" }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onClose()">Zamknij</button>
+</mat-dialog-actions>

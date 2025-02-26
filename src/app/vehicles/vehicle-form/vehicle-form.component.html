@@ -1,0 +1,91 @@
+<form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+  <!-- Marka pojazdu jako select -->
+  <mat-form-field appearance="fill">
+    <mat-label>Marka pojazdu</mat-label>
+    <mat-select formControlName="brand">
+      <mat-option *ngFor="let brand of brands" [value]="brand.name">
+        {{ brand.name }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="vehicleForm.get('brand')?.hasError('required')">
+      Marka pojazdu jest wymagana.
+    </mat-error>
+  </mat-form-field>
+
+  <div *ngIf="brandsErrorMessage" class="error-container">
+    <p>{{ brandsErrorMessage }}</p>
+    <button mat-button color="primary" (click)="loadBrands()">
+      Spróbuj ponownie
+    </button>
+  </div>
+
+  <!-- Numer rejestracyjny -->
+  <mat-form-field appearance="fill">
+    <mat-label>Numer rejestracyjny</mat-label>
+    <input
+      matInput
+      formControlName="registrationNumber"
+      placeholder="Wprowadź numer rejestracyjny"
+    />
+    <mat-error
+      *ngIf="vehicleForm.get('registrationNumber')?.hasError('required')"
+    >
+      Numer rejestracyjny jest wymagany.
+    </mat-error>
+    <mat-error
+      *ngIf="vehicleForm.get('registrationNumber')?.hasError('maxlength')"
+    >
+      Numer rejestracyjny może mieć maksymalnie 10 znaków.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- VIN -->
+  <mat-form-field appearance="fill">
+    <mat-label>VIN</mat-label>
+    <input matInput formControlName="vin" placeholder="Wprowadź VIN" />
+    <mat-error *ngIf="vehicleForm.get('vin')?.hasError('required')">
+      VIN jest wymagany.
+    </mat-error>
+    <mat-error
+      *ngIf="
+        vehicleForm.get('vin')?.hasError('minlength') ||
+        vehicleForm.get('vin')?.hasError('maxlength')
+      "
+    >
+      VIN musi mieć dokładnie 17 znaków.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Email klienta -->
+  <mat-form-field appearance="fill">
+    <mat-label>Email klienta</mat-label>
+    <input
+      matInput
+      formControlName="clientEmail"
+      placeholder="Wprowadź email"
+    />
+    <mat-error *ngIf="vehicleForm.get('clientEmail')?.hasError('email')">
+      Podaj poprawny adres email.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Komponent adresu klienta -->
+  <app-address [group]="clientAddressGroup"></app-address>
+
+  <!-- Checkbox wypożyczenia -->
+  <mat-checkbox formControlName="isRented" [disabled]="!editMode">
+    Wypożyczony
+  </mat-checkbox>
+
+  <!-- Aktualny adres pozycji (readonly) -->
+  <mat-form-field appearance="fill">
+    <mat-label>Aktualny adres pozycji</mat-label>
+    <input matInput formControlName="currentPosition" readonly />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Zapisz</button>
+
+  <div *ngIf="errorMessages && errorMessages.length" class="error-container">
+    <p *ngFor="let errMsg of errorMessages">{{ errMsg }}</p>
+  </div>
+</form>
